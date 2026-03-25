@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gamoz & Mafiki Projects & Services</title>
-  <meta name="description" content="Gamoz & Mafiki Projects & Services offers plumbing, electrical, maintenance, backup power, and admin support in Pietermaritzburg and surrounding areas." />
+  <meta name="description" content="Gamoz & Mafiki Projects & Services offers plumbing, electrical support, property maintenance, backup power solutions, and admin services in Pietermaritzburg and surrounding areas." />
   <style>
     :root {
       --red: #b5121b;
@@ -13,10 +13,11 @@
       --light: #f5f5f5;
       --white: #ffffff;
       --gray: #666666;
+      --muted: #f0f0f0;
       --border: rgba(255,255,255,0.12);
-      --shadow: 0 10px 30px rgba(0,0,0,0.18);
+      --shadow: 0 10px 30px rgba(0,0,0,0.12);
       --radius: 18px;
-      --max: 1140px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
@@ -55,7 +56,7 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 1000;
       background: rgba(255,255,255,0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid #e7e7e7;
@@ -77,14 +78,14 @@
     }
 
     .logo {
-      width: 56px;
-      height: 56px;
+      width: 58px;
+      height: 58px;
       border-radius: 16px;
       background: linear-gradient(135deg, var(--red), #1a1a1a);
       display: grid;
       place-items: center;
       color: var(--white);
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
       box-shadow: var(--shadow);
       flex-shrink: 0;
@@ -99,18 +100,19 @@
     .brand-text p {
       margin: 2px 0 0;
       color: var(--gray);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 18px;
+      gap: 16px;
       padding: 0;
       margin: 0;
       align-items: center;
       flex-wrap: wrap;
       justify-content: flex-end;
+      font-size: 0.95rem;
     }
 
     nav a:hover { color: var(--red); }
@@ -125,15 +127,15 @@
 
     .hero {
       background:
-        linear-gradient(rgba(17,17,17,0.72), rgba(17,17,17,0.68)),
+        linear-gradient(rgba(17,17,17,0.74), rgba(17,17,17,0.68)),
         linear-gradient(135deg, #6b0e14 0%, #1a1a1a 100%);
       color: var(--white);
-      padding: 88px 0 70px;
+      padding: 90px 0 72px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 34px;
       align-items: center;
     }
@@ -150,7 +152,7 @@
 
     .hero h2 {
       font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1.1;
+      line-height: 1.08;
       margin: 0 0 16px;
     }
 
@@ -165,7 +167,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .btn {
@@ -176,7 +178,10 @@
       padding: 13px 20px;
       border-radius: 999px;
       font-weight: 700;
+      border: none;
+      cursor: pointer;
       transition: transform 0.2s ease, opacity 0.2s ease;
+      font-size: 0.98rem;
     }
 
     .btn:hover { transform: translateY(-1px); }
@@ -185,6 +190,7 @@
     .btn-outline {
       border: 2px solid rgba(255,255,255,0.3);
       color: var(--white);
+      background: transparent;
     }
 
     .hero-card {
@@ -215,9 +221,7 @@
       border-radius: 14px;
     }
 
-    section {
-      padding: 72px 0;
-    }
+    section { padding: 74px 0; }
 
     .section-title {
       text-align: center;
@@ -231,22 +235,29 @@
 
     .section-title p {
       margin: 0 auto;
-      max-width: 720px;
+      max-width: 760px;
       color: var(--gray);
     }
 
     .services-grid,
     .stats-grid,
     .reasons-grid,
+    .steps-grid,
+    .testimonials-grid,
+    .portfolio-grid,
     .contact-grid,
-    .steps-grid {
+    .quote-grid {
       display: grid;
       gap: 22px;
     }
 
-    .services-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .stats-grid { grid-template-columns: repeat(4, 1fr); }
+    .reasons-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps-grid { grid-template-columns: repeat(3, 1fr); }
+    .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+    .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+    .contact-grid, .quote-grid { grid-template-columns: 1fr 1fr; }
 
     .card {
       background: var(--white);
@@ -285,10 +296,6 @@
       color: var(--white);
     }
 
-    .stats-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
     .stat {
       text-align: center;
       padding: 28px 18px;
@@ -301,10 +308,6 @@
       display: block;
       font-size: 2rem;
       color: var(--gold);
-    }
-
-    .reasons-grid {
-      grid-template-columns: repeat(2, 1fr);
     }
 
     .reason {
@@ -332,8 +335,7 @@
     .about-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 26px;
-      align-items: stretch;
+      gap: 24px;
     }
 
     .about-box {
@@ -344,12 +346,8 @@
     }
 
     .about-box ul {
+      margin: 0;
       padding-left: 18px;
-      margin-bottom: 0;
-    }
-
-    .steps-grid {
-      grid-template-columns: repeat(3, 1fr);
     }
 
     .step-number {
@@ -364,12 +362,91 @@
       margin-bottom: 14px;
     }
 
-    .contact-grid {
-      grid-template-columns: 0.95fr 1.05fr;
-      align-items: start;
+    .portfolio-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid #ececec;
     }
 
-    .contact-card {
+    .portfolio-body {
+      padding: 20px;
+    }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background: #f7f7f7;
+      padding: 14px;
+    }
+
+    .image-wrap {
+      position: relative;
+      background: #e9e9e9;
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 180px;
+    }
+
+    .image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.72);
+      color: white;
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .placeholder {
+      display: none;
+      width: 100%;
+      min-height: 180px;
+      place-items: center;
+      text-align: center;
+      padding: 16px;
+      color: #555;
+      background: linear-gradient(135deg, #f2f2f2, #dddddd);
+      font-weight: 700;
+    }
+
+    .testimonial {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--red);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #444;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .testimonial-role {
+      color: var(--gray);
+      font-size: 0.92rem;
+    }
+
+    .contact-card,
+    .quote-card,
+    .map-card {
       background: var(--white);
       border-radius: 20px;
       padding: 24px;
@@ -390,22 +467,45 @@
       border-radius: 12px;
     }
 
+    .qr-box {
+      text-align: center;
+      margin-top: 24px;
+      padding: 18px;
+      background: #f8f8f8;
+      border-radius: 16px;
+    }
+
+    .qr-box img {
+      width: 170px;
+      margin: 0 auto 10px;
+      border-radius: 10px;
+    }
+
     form {
       display: grid;
+      gap: 14px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
 
     label {
       font-weight: 700;
       font-size: 0.95rem;
+      display: block;
+      margin-bottom: 6px;
     }
 
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 13px 14px;
       border: 1px solid #dddddd;
       border-radius: 12px;
       font: inherit;
+      background: #fff;
     }
 
     textarea { min-height: 130px; resize: vertical; }
@@ -416,10 +516,17 @@
       margin-top: 10px;
     }
 
+    iframe {
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+      min-height: 360px;
+    }
+
     footer {
       background: #0c0c0c;
       color: var(--white);
-      padding: 28px 0;
+      padding: 30px 0;
     }
 
     .footer-wrap {
@@ -435,42 +542,46 @@
       font-size: 0.95rem;
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1050px) {
       .hero-grid,
       .about-wrap,
       .contact-grid,
-      .services-grid,
-      .stats-grid,
-      .reasons-grid,
-      .steps-grid {
-        grid-template-columns: 1fr 1fr;
+      .quote-grid {
+        grid-template-columns: 1fr;
       }
 
-      .contact-grid,
-      .hero-grid,
-      .about-wrap {
-        grid-template-columns: 1fr;
+      .services-grid,
+      .portfolio-grid,
+      .testimonials-grid,
+      .steps-grid,
+      .stats-grid,
+      .reasons-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 720px) {
       nav ul {
-        gap: 10px 14px;
-        font-size: 0.95rem;
+        gap: 10px 12px;
+        font-size: 0.92rem;
       }
 
       .brand-text h1 { font-size: 0.95rem; }
       .brand-text p { font-size: 0.82rem; }
 
       .services-grid,
+      .portfolio-grid,
+      .testimonials-grid,
+      .steps-grid,
       .stats-grid,
       .reasons-grid,
-      .steps-grid {
+      .form-grid,
+      .before-after {
         grid-template-columns: 1fr;
       }
 
-      .hero { padding-top: 64px; }
-      section { padding: 56px 0; }
+      section { padding: 58px 0; }
+      .hero { padding-top: 66px; }
     }
   </style>
 </head>
@@ -489,14 +600,17 @@
         <div class="logo">G&amp;M</div>
         <div class="brand-text">
           <h1>Gamoz &amp; Mafiki Projects &amp; Services</h1>
-          <p>Trusted local maintenance professionals</p>
+          <p>Reliable Maintenance. Smart Solutions.</p>
         </div>
       </div>
       <nav>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#quote">Quote</a></li>
+          <li><a href="#location">Location</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a class="nav-cta" href="https://wa.me/27641483727" target="_blank">WhatsApp Us</a></li>
         </ul>
@@ -509,18 +623,18 @@
       <div class="container hero-grid">
         <div>
           <span class="badge">13+ Years Experience • Pietermaritzburg &amp; Surrounding Areas</span>
-          <h2>Reliable Maintenance. Smart Solutions.</h2>
+          <h2>Professional Property Maintenance You Can Trust</h2>
           <p>
-            Professional plumbing, electrical fault support, property maintenance, backup power setup,
-            and admin services for homes, flats, offices, and small businesses. Fast response, clean work,
-            and affordable service you can trust.
+            We provide practical, affordable, and reliable maintenance services for homes,
+            offices, flats, complexes, and small businesses. From plumbing and electrical support
+            to emergency repairs, backup power, and admin services, we help keep things running smoothly.
           </p>
           <div class="actions">
             <a class="btn btn-primary" href="tel:+27815325916">📞 Call Now</a>
             <a class="btn btn-secondary" href="https://wa.me/27641483727" target="_blank">💬 WhatsApp</a>
-            <a class="btn btn-outline" href="#services">View Services</a>
+            <a class="btn btn-outline" href="#quote">Request a Quote</a>
           </div>
-          <p><strong>Available for urgent repairs, monthly maintenance, and smart backup solutions.</strong></p>
+          <p><strong>Fast response. Clean workmanship. Local service you can depend on.</strong></p>
         </div>
         <div class="hero-card">
           <h3>Our Core Services</h3>
@@ -540,38 +654,38 @@
       <div class="container">
         <div class="section-title">
           <h3>Our Services</h3>
-          <p>Practical, affordable, and professional services designed for households, offices, complexes, and small businesses.</p>
+          <p>Practical services designed for property owners, tenants, offices, and small businesses.</p>
         </div>
         <div class="services-grid">
           <article class="card">
             <div class="icon">🧰</div>
             <h4>Emergency Repairs</h4>
-            <p>Burst pipes, leaking taps, urgent faults, blocked drains, damaged fittings, and fast response repairs when you need help quickly.</p>
+            <p>Burst pipes, leaking taps, urgent faults, blocked drains, damaged fittings, and fast response call-outs.</p>
           </article>
           <article class="card">
             <div class="icon">🚰</div>
             <h4>Plumbing Services</h4>
-            <p>Tap repairs, washer replacement, basic plumbing maintenance, leak tracing, bathroom fitting support, and water-related problem solving.</p>
+            <p>Tap repairs, washer replacement, leak tracing, bathroom fitting support, and water-related maintenance.</p>
           </article>
           <article class="card">
             <div class="icon">⚡</div>
             <h4>Electrical Support</h4>
-            <p>Fault checks, light and switch replacement, general electrical maintenance support, and practical help with common power problems.</p>
+            <p>General electrical fault support, switch and light replacement, and practical help with common power problems.</p>
           </article>
           <article class="card">
             <div class="icon">🏢</div>
             <h4>Property Maintenance</h4>
-            <p>Maintenance for flats, offices, complexes, and rental properties including preventative checks and routine upkeep.</p>
+            <p>Routine upkeep for offices, flats, complexes, and rental properties, including preventative maintenance support.</p>
           </article>
           <article class="card">
             <div class="icon">🔋</div>
             <h4>Backup Power Setup</h4>
-            <p>Router backup power and small backup solutions to keep your Wi-Fi and essential devices running during power cuts.</p>
+            <p>Router backup and small backup power solutions to keep essential devices running during outages.</p>
           </article>
           <article class="card">
             <div class="icon">💼</div>
             <h4>Tech &amp; Admin Help</h4>
-            <p>CV updates, invoice setup, simple small business admin support, and digital help for clients who want a more professional setup.</p>
+            <p>CV updates, invoice setup, and simple admin support to help clients operate more professionally.</p>
           </article>
         </div>
       </div>
@@ -581,24 +695,24 @@
       <div class="container">
         <div class="section-title">
           <h3>Why Clients Choose Us</h3>
-          <p style="color:#dddddd;">Built on experience, trust, and practical service delivery.</p>
+          <p style="color:#dddddd;">Built on trust, consistency, and real maintenance experience.</p>
         </div>
         <div class="stats-grid">
           <div class="stat">
             <strong>13+</strong>
-            Years of maintenance experience
-          </div>
-          <div class="stat">
-            <strong>24/7</strong>
-            Emergency support mindset
-          </div>
-          <div class="stat">
-            <strong>Local</strong>
-            Service in your area
+            Years of experience
           </div>
           <div class="stat">
             <strong>Fast</strong>
-            Response and action
+            Response times
+          </div>
+          <div class="stat">
+            <strong>Local</strong>
+            Community-based service
+          </div>
+          <div class="stat">
+            <strong>Smart</strong>
+            Practical solutions
           </div>
         </div>
       </div>
@@ -608,36 +722,133 @@
       <div class="container">
         <div class="section-title">
           <h3>What Makes Us Different</h3>
-          <p>We combine hands-on maintenance experience with smart, practical solutions for everyday property problems.</p>
+          <p>We combine hands-on skill, professional care, and reliable service delivery.</p>
         </div>
         <div class="reasons-grid">
           <div class="reason">
             <div class="tick">✓</div>
             <div>
               <h4>Trusted Experience</h4>
-              <p>More than 13 years working in real maintenance environments across multiple buildings and service needs.</p>
+              <p>More than 13 years working in building and property maintenance across multiple service needs.</p>
             </div>
           </div>
           <div class="reason">
             <div class="tick">✓</div>
             <div>
               <h4>Professional Approach</h4>
-              <p>Clear communication, neat workmanship, practical problem solving, and service that respects your time and property.</p>
+              <p>Clear communication, neat workmanship, and practical problem solving on every job.</p>
             </div>
           </div>
           <div class="reason">
             <div class="tick">✓</div>
             <div>
               <h4>Affordable Solutions</h4>
-              <p>We focus on cost-effective maintenance and repair options without compromising the quality of the job.</p>
+              <p>We focus on cost-effective repair and maintenance without sacrificing quality.</p>
             </div>
           </div>
           <div class="reason">
             <div class="tick">✓</div>
             <div>
-              <h4>Smart Side Services</h4>
-              <p>From backup power for routers to business admin support, we help clients solve both physical and digital problems.</p>
+              <h4>More Than Basic Repairs</h4>
+              <p>We also support clients with backup power, business admin help, and smart service ideas.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-title">
+          <h3>Our Work Portfolio</h3>
+          <p>Before-and-after examples of the kind of work we do. Upload your real job photos using the file names shown below.</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="portfolio-card">
+            <div class="before-after">
+              <div class="image-wrap">
+                <span class="photo-label">Before</span>
+                <img src="plumbing-before.jpg" alt="Plumbing repair before" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <div class="placeholder">Upload: plumbing-before.jpg</div>
+              </div>
+              <div class="image-wrap">
+                <span class="photo-label">After</span>
+                <img src="plumbing-after.jpg" alt="Plumbing repair after" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <div class="placeholder">Upload: plumbing-after.jpg</div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h4>Emergency Plumbing Repair</h4>
+              <p>Kitchen tap repair completed after-hours by replacing a worn washer and restoring normal operation.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="before-after">
+              <div class="image-wrap">
+                <span class="photo-label">Before</span>
+                <img src="wood-before.jpg" alt="Wood restoration before" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <div class="placeholder">Upload: wood-before.jpg</div>
+              </div>
+              <div class="image-wrap">
+                <span class="photo-label">After</span>
+                <img src="wood-after.jpg" alt="Wood restoration after" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <div class="placeholder">Upload: wood-after.jpg</div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h4>Wood Restoration</h4>
+              <p>Sanded, repaired, and varnished wooden benches or handrails for a clean, strong, weather-protected finish.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="before-after">
+              <div class="image-wrap">
+                <span class="photo-label">Before</span>
+                <img src="garden-before.jpg" alt="Garden maintenance before" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <div class="placeholder">Upload: garden-before.jpg</div>
+              </div>
+              <div class="image-wrap">
+                <span class="photo-label">After</span>
+                <img src="garden-after.jpg" alt="Garden maintenance after" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <div class="placeholder">Upload: garden-after.jpg</div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h4>Garden &amp; Grounds Maintenance</h4>
+              <p>Lawn cutting, pruning, and cleaning work done to improve appearance, safety, and site presentation.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="dark-section">
+      <div class="container">
+        <div class="section-title">
+          <h3>Client Testimonials</h3>
+          <p style="color:#dddddd;">Replace these with real client reviews as you collect them.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial">
+            <div class="testimonial-text">“Lucky responded quickly and handled the repair professionally. The problem was solved the same day.”</div>
+            <div class="testimonial-name">Client Name Here</div>
+            <div class="testimonial-role">Residential Client</div>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-text">“Reliable service, good communication, and neat workmanship. I would gladly use Gamoz & Mafiki again.”</div>
+            <div class="testimonial-name">Client Name Here</div>
+            <div class="testimonial-role">Office / Property Client</div>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-text">“Professional and affordable. The maintenance work was done properly and on time.”</div>
+            <div class="testimonial-name">Client Name Here</div>
+            <div class="testimonial-role">Business Client</div>
           </div>
         </div>
       </div>
@@ -647,19 +858,19 @@
       <div class="container">
         <div class="section-title">
           <h3>About Gamoz &amp; Mafiki</h3>
-          <p>A local service business focused on practical maintenance, reliable support, and long-term client trust.</p>
+          <p>A local service business focused on quality maintenance, practical solutions, and long-term client trust.</p>
         </div>
         <div class="about-wrap">
           <div class="about-box">
             <h4>Who We Are</h4>
             <p>
               Gamoz &amp; Mafiki Projects &amp; Services is a maintenance-focused business serving homes,
-              offices, flats, and small businesses. We aim to provide reliable service, fast support,
-              and smart solutions that help clients keep their properties working properly.
+              flats, offices, and small businesses. We provide reliable service, fast support,
+              and practical solutions that help clients keep their properties in good condition.
             </p>
             <p>
-              Our work is built on real experience in plumbing, electrical support, property upkeep,
-              contractor coordination, and daily maintenance operations.
+              Our work is built on real experience in plumbing, electrical support, daily maintenance operations,
+              property upkeep, and contractor coordination.
             </p>
           </div>
           <div class="about-box">
@@ -668,36 +879,112 @@
               <li>Respond quickly to urgent problems</li>
               <li>Deliver practical and affordable solutions</li>
               <li>Respect your property and your time</li>
-              <li>Build long-term trust through quality work</li>
-              <li>Keep improving with smart service ideas</li>
+              <li>Build trust through quality workmanship</li>
+              <li>Keep improving with smarter service options</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="quote">
       <div class="container">
         <div class="section-title">
-          <h3>How It Works</h3>
-          <p>Simple steps to get help fast.</p>
+          <h3>Request a Quote</h3>
+          <p>Fill in the form below and it will open WhatsApp with your quote request ready to send.</p>
         </div>
-        <div class="steps-grid">
-          <div class="card">
-            <div class="step-number">1</div>
-            <h4>Contact Us</h4>
-            <p>Call or WhatsApp us and tell us what problem you need solved.</p>
+
+        <div class="quote-grid">
+          <div class="quote-card">
+            <h4>Send Us Your Job Details</h4>
+            <form onsubmit="sendQuoteToWhatsApp(event)">
+              <div class="form-grid">
+                <div>
+                  <label for="qname">Full Name</label>
+                  <input id="qname" type="text" placeholder="Your full name" required>
+                </div>
+                <div>
+                  <label for="qphone">Phone Number</label>
+                  <input id="qphone" type="tel" placeholder="Your phone number" required>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div>
+                  <label for="qservice">Service Needed</label>
+                  <select id="qservice" required>
+                    <option value="">Select a service</option>
+                    <option>Emergency Repair</option>
+                    <option>Plumbing</option>
+                    <option>Electrical Support</option>
+                    <option>Property Maintenance</option>
+                    <option>Backup Power Setup</option>
+                    <option>Tech / Admin Help</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="qlocation">Job Location</label>
+                  <input id="qlocation" type="text" placeholder="Area / suburb" required>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div>
+                  <label for="qdate">Preferred Date</label>
+                  <input id="qdate" type="date">
+                </div>
+                <div>
+                  <label for="qbudget">Estimated Budget</label>
+                  <input id="qbudget" type="text" placeholder="Optional">
+                </div>
+              </div>
+
+              <div>
+                <label for="qmessage">Describe the Job</label>
+                <textarea id="qmessage" placeholder="Tell us what needs to be repaired or done" required></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Send Quote Request via WhatsApp</button>
+            </form>
+            <p class="note">This sends your details directly to WhatsApp for faster response.</p>
           </div>
-          <div class="card">
-            <div class="step-number">2</div>
-            <h4>We Assess the Job</h4>
-            <p>We discuss the issue, arrange a visit if needed, and explain the best practical solution.</p>
+
+          <div class="quote-card">
+            <h4>Why Request a Quote?</h4>
+            <p>Get a quick response for maintenance, repairs, upgrades, and backup power solutions.</p>
+            <ul>
+              <li>Fast response for urgent jobs</li>
+              <li>Clear communication</li>
+              <li>Affordable practical solutions</li>
+              <li>Local service in Pietermaritzburg and surrounding areas</li>
+            </ul>
+            <div class="qr-box">
+              <h4>Scan to Visit Our Website</h4>
+              <img src="qr.png" alt="Website QR code" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div style="display:none; font-weight:700;">Upload: qr.png</div>
+              <p>Scan and share our website quickly.</p>
+            </div>
           </div>
-          <div class="card">
-            <div class="step-number">3</div>
-            <h4>We Get It Done</h4>
-            <p>We carry out the work professionally and make sure the issue is handled properly.</p>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <div class="container">
+        <div class="section-title">
+          <h3>Our Service Location</h3>
+          <p>This map shows your service area. Later, you can replace it with your exact business address if you want.</p>
+        </div>
+
+        <div class="map-card">
+          <iframe
+            src="https://www.google.com/maps?q=Pietermaritzburg,%20KwaZulu-Natal&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <p class="note">Current map set to Pietermaritzburg, KwaZulu-Natal. Replace the location text in the map link later if needed.</p>
         </div>
       </div>
     </section>
@@ -706,8 +993,9 @@
       <div class="container">
         <div class="section-title">
           <h3>Contact Us</h3>
-          <p style="color:#dddddd;">Ready to book a job, ask for pricing, or discuss a monthly maintenance plan? Reach out today.</p>
+          <p style="color:#dddddd;">Ready to book a job or discuss a maintenance plan? Reach out today.</p>
         </div>
+
         <div class="contact-grid">
           <div class="contact-card">
             <h4>Business Details</h4>
@@ -723,28 +1011,55 @@
               <a class="btn btn-secondary" href="https://wa.me/27641483727" target="_blank">WhatsApp Now</a>
             </div>
           </div>
+
           <div class="contact-card">
             <h4>Quick Message Form</h4>
-            <form onsubmit="sendToWhatsApp(event)">
+            <form onsubmit="sendQuickMessage(event)">
               <div>
                 <label for="name">Your Name</label>
-                <input id="name" name="name" type="text" placeholder="Enter your name" required>
+                <input id="name" type="text" placeholder="Enter your name" required>
               </div>
               <div>
                 <label for="phone">Phone Number</label>
-                <input id="phone" name="phone" type="tel" placeholder="Enter your phone number" required>
+                <input id="phone" type="tel" placeholder="Enter your phone number" required>
               </div>
               <div>
                 <label for="service">Service Needed</label>
-                <input id="service" name="service" type="text" placeholder="Example: leaking tap, urgent repair, maintenance plan" required>
+                <input id="service" type="text" placeholder="Example: leaking tap, urgent repair, maintenance plan" required>
               </div>
               <div>
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Tell us what you need help with" required></textarea>
+                <textarea id="message" placeholder="Tell us what you need help with" required></textarea>
               </div>
               <button class="btn btn-primary" type="submit">Send via WhatsApp</button>
             </form>
-            <p class="note">This form opens WhatsApp with your message ready to send.</p>
+            <p class="note">This opens WhatsApp with your message ready to send.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h3>How It Works</h3>
+          <p>Simple steps to get help quickly.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="card">
+            <div class="step-number">1</div>
+            <h4>Contact Us</h4>
+            <p>Call or WhatsApp us and tell us what you need help with.</p>
+          </div>
+          <div class="card">
+            <div class="step-number">2</div>
+            <h4>We Assess the Job</h4>
+            <p>We discuss the issue, arrange a visit if needed, and explain the best practical solution.</p>
+          </div>
+          <div class="card">
+            <div class="step-number">3</div>
+            <h4>We Get It Done</h4>
+            <p>We carry out the work professionally and make sure the problem is handled properly.</p>
           </div>
         </div>
       </div>
@@ -762,18 +1077,46 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    function sendToWhatsApp(event) {
+    function sendQuickMessage(event) {
       event.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const service = document.getElementById('service').value.trim();
-      const message = document.getElementById('message').value.trim();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const service = document.getElementById("service").value.trim();
+      const message = document.getElementById("message").value.trim();
 
       const text = `Hello Gamoz & Mafiki, my name is ${name}. My phone number is ${phone}. I need help with: ${service}. Details: ${message}`;
       const url = `https://wa.me/27641483727?text=${encodeURIComponent(text)}`;
-      window.open(url, '_blank');
+      window.open(url, "_blank");
+    }
+
+    function sendQuoteToWhatsApp(event) {
+      event.preventDefault();
+
+      const qname = document.getElementById("qname").value.trim();
+      const qphone = document.getElementById("qphone").value.trim();
+      const qservice = document.getElementById("qservice").value.trim();
+      const qlocation = document.getElementById("qlocation").value.trim();
+      const qdate = document.getElementById("qdate").value.trim();
+      const qbudget = document.getElementById("qbudget").value.trim();
+      const qmessage = document.getElementById("qmessage").value.trim();
+
+      const text =
+`Hello Gamoz & Mafiki, I would like to request a quote.
+
+Name: ${qname}
+Phone: ${qphone}
+Service: ${qservice}
+Location: ${qlocation}
+Preferred Date: ${qdate || "Not specified"}
+Estimated Budget: ${qbudget || "Not specified"}
+
+Job Details:
+${qmessage}`;
+
+      const url = `https://wa.me/27641483727?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
     }
   </script>
 </body>
